@@ -1,0 +1,11 @@
+[project]
+name = "stepzen-gql-soap"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.32.4",
+    "tomlkit>=0.13.3",
+    "zeep>=4.3.1",
+]
