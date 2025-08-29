@@ -90,7 +90,8 @@ def generate_schema_and_index(wsdl_url: str, workspace_path: str):
     client = Client(wsdl_url, transport=transport)
 
     schema_fields = []
-    tns = getattr(client.wsdl, "tns", None) or ""
+
+    tns = client.namespaces['ns0']
     seen_ops = set()
     
     for service in client.wsdl.services.values():
@@ -155,6 +156,7 @@ def generate_schema_and_index(wsdl_url: str, workspace_path: str):
 
 if __name__ == "__main__":
     WSDL_URL = "https://soap-service-free.mock.beeceptor.com/CountryInfoService?WSDL"
+
 
     init_stepzen_workspace()
     #schema_file = generate_graphql_from_wsdl(WSDL_URL)
