@@ -5,7 +5,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
+    "argparse>=1.4.0",
+    "jinja2>=3.1.6",
+    "logging>=0.4.9.6",
+    "lxml>=6.0.0",
     "requests>=2.32.4",
     "tomlkit>=0.13.3",
+    "typing>=3.10.0.0",
     "zeep>=4.3.1",
 ]

@@ -1,0 +1,45 @@
+
+
+type Query {
+  NumberToWords(ubiNum: String!) : JSON
+    @rest(
+      endpoint: "https://www.dataaccess.com/webservicesserver/NumberConversion.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <NumberToWords xmlns="http://www.dataaccess.com/webservicesserver/">
+          <ubiNum>{{ .Get "ubiNum" }}</ubiNum>
+            </NumberToWords>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  NumberToDollars(dNum: String!) : JSON
+    @rest(
+      endpoint: "https://www.dataaccess.com/webservicesserver/NumberConversion.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <NumberToDollars xmlns="http://www.dataaccess.com/webservicesserver/">
+          <dNum>{{ .Get "dNum" }}</dNum>
+            </NumberToDollars>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+}

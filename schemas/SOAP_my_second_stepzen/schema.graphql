@@ -1,0 +1,444 @@
+
+
+type Query {
+  ListOfContinentsByName : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <ListOfContinentsByName xmlns="http://www.oorsprong.org/websamples.countryinfo">
+
+            </ListOfContinentsByName>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  ListOfContinentsByCode : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <ListOfContinentsByCode xmlns="http://www.oorsprong.org/websamples.countryinfo">
+
+            </ListOfContinentsByCode>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  ListOfCurrenciesByName : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <ListOfCurrenciesByName xmlns="http://www.oorsprong.org/websamples.countryinfo">
+
+            </ListOfCurrenciesByName>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  ListOfCurrenciesByCode : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <ListOfCurrenciesByCode xmlns="http://www.oorsprong.org/websamples.countryinfo">
+
+            </ListOfCurrenciesByCode>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  CurrencyName(sCurrencyISOCode: String!) : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <CurrencyName xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sCurrencyISOCode>{{ .Get "sCurrencyISOCode" }}</sCurrencyISOCode>
+            </CurrencyName>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  ListOfCountryNamesByCode : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <ListOfCountryNamesByCode xmlns="http://www.oorsprong.org/websamples.countryinfo">
+
+            </ListOfCountryNamesByCode>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  ListOfCountryNamesByName : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <ListOfCountryNamesByName xmlns="http://www.oorsprong.org/websamples.countryinfo">
+
+            </ListOfCountryNamesByName>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  ListOfCountryNamesGroupedByContinent : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <ListOfCountryNamesGroupedByContinent xmlns="http://www.oorsprong.org/websamples.countryinfo">
+
+            </ListOfCountryNamesGroupedByContinent>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  CountryName(sCountryISOCode: String!) : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <CountryName xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sCountryISOCode>{{ .Get "sCountryISOCode" }}</sCountryISOCode>
+            </CountryName>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  CountryISOCode(sCountryName: String!) : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <CountryISOCode xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sCountryName>{{ .Get "sCountryName" }}</sCountryName>
+            </CountryISOCode>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  CapitalCity(sCountryISOCode: String!) : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <CapitalCity xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sCountryISOCode>{{ .Get "sCountryISOCode" }}</sCountryISOCode>
+            </CapitalCity>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  CountryCurrency(sCountryISOCode: String!) : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <CountryCurrency xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sCountryISOCode>{{ .Get "sCountryISOCode" }}</sCountryISOCode>
+            </CountryCurrency>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  CountryFlag(sCountryISOCode: String!) : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <CountryFlag xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sCountryISOCode>{{ .Get "sCountryISOCode" }}</sCountryISOCode>
+            </CountryFlag>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  CountryIntPhoneCode(sCountryISOCode: String!) : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <CountryIntPhoneCode xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sCountryISOCode>{{ .Get "sCountryISOCode" }}</sCountryISOCode>
+            </CountryIntPhoneCode>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  FullCountryInfo(sCountryISOCode: String!) : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <FullCountryInfo xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sCountryISOCode>{{ .Get "sCountryISOCode" }}</sCountryISOCode>
+            </FullCountryInfo>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  FullCountryInfoAllCountries : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <FullCountryInfoAllCountries xmlns="http://www.oorsprong.org/websamples.countryinfo">
+
+            </FullCountryInfoAllCountries>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  CountriesUsingCurrency(sISOCurrencyCode: String!) : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <CountriesUsingCurrency xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sISOCurrencyCode>{{ .Get "sISOCurrencyCode" }}</sISOCurrencyCode>
+            </CountriesUsingCurrency>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  ListOfLanguagesByName : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <ListOfLanguagesByName xmlns="http://www.oorsprong.org/websamples.countryinfo">
+
+            </ListOfLanguagesByName>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  ListOfLanguagesByCode : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <ListOfLanguagesByCode xmlns="http://www.oorsprong.org/websamples.countryinfo">
+
+            </ListOfLanguagesByCode>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  LanguageName(sISOCode: String!) : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <LanguageName xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sISOCode>{{ .Get "sISOCode" }}</sISOCode>
+            </LanguageName>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  LanguageISOCode(sLanguageName: String!) : JSON
+    @rest(
+      endpoint: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <LanguageISOCode xmlns="http://www.oorsprong.org/websamples.countryinfo">
+          <sLanguageName>{{ .Get "sLanguageName" }}</sLanguageName>
+            </LanguageISOCode>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+}

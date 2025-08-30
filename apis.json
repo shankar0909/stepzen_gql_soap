@@ -1,0 +1,5 @@
+{
+  "SOAP/my_first_stepzen": "https://soap-service-free.mock.beeceptor.com/CountryInfoService?WSDL",
+  "SOAP/my_second_stepzen": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL",
+  "SOAP/my_third_stepzen": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso?WSDL"
+}

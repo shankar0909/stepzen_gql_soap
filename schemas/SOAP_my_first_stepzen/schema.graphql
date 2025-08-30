@@ -1,0 +1,45 @@
+
+
+type Query {
+  ListOfContinentsByName : JSON
+    @rest(
+      endpoint: "https://soap-service-free.mock.beeceptor.com/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <ListOfContinentsByName xmlns="https://soap-service-free.mock.beeceptor.com/CountryInfoService">
+
+            </ListOfContinentsByName>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+
+  ListOfCountryNamesByName : JSON
+    @rest(
+      endpoint: "https://soap-service-free.mock.beeceptor.com/CountryInfoService.wso"
+      method: POST
+      headers: [
+        {name: "Content-Type", value: "text/xml; charset=utf-8"}
+      ]
+      postbody: """
+        <?xml version="1.0" encoding="utf-8"?>
+        <soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <ListOfCountryNamesByName xmlns="https://soap-service-free.mock.beeceptor.com/CountryInfoService">
+
+            </ListOfCountryNamesByName>
+          </soap12:Body>
+        </soap12:Envelope>
+      """
+      transforms: [{pathpattern: "[]", editor: "xml2json"}]
+      resultroot: "Envelope"
+    )
+}
